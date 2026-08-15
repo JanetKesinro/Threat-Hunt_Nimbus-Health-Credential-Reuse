@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="assets/NimbusHealth_CredentialReuse_Cover.png"
+    src="assets/cover.png"
     width="1200"
     alt="Nimbus Health Credential Reuse Threat Hunt Cover"
   />
