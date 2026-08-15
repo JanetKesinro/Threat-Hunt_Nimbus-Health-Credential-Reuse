@@ -617,10 +617,12 @@ This command showed the operator moving beyond local discovery and enumerating n
 
 ```kql
 DeviceProcessEvents
+| where Timestamp between (datetime(2026-05-29T01:40:00Z) .. datetime(2026-05-29T01:47:00Z))
 | where DeviceName == "nh-wks-it-01.corp.nimbushealth.com"
 | where AccountName == "m.reed"
-| where ProcessCommandLine has "net view"
-| project Timestamp, FileName, ProcessCommandLine
+| where FileName =~ "net.exe"
+| where ProcessCommandLine has "NH-FS-01"
+| project Timestamp, FileName, ProcessCommandLine, InitiatingProcessFileName, InitiatingProcessCommandLine
 | order by Timestamp asc
 ```
 
