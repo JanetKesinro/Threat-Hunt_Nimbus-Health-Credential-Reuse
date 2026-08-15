@@ -514,9 +514,10 @@ These commands showed the operator orienting themselves on the host, identifying
 
 ```kql
 DeviceProcessEvents
+| where Timestamp between (datetime(2026-05-29T01:30:00Z) .. datetime(2026-05-29T01:32:00Z))
 | where DeviceName == "nh-wks-it-01.corp.nimbushealth.com"
 | where AccountName == "m.reed"
-| where Timestamp between (datetime(2026-05-29T01:28:00Z) .. datetime(2026-05-29T01:38:00Z))
+| where ProcessCommandLine in ("whoami", "hostname", "ipconfig /all", "whoami /groups")
 | project Timestamp, FileName, ProcessCommandLine, InitiatingProcessFileName
 | order by Timestamp asc
 ```
